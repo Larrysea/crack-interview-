@@ -1,0 +1,15 @@
+  //crack interview 第二题，反转字符串
+  public String reverseString(String iniString) {
+        // write code here
+        char[] strArray = iniString.toCharArray();
+        int left = 0;
+        int right = strArray.length - 1;
+        while (left < right) {
+            char temp = strArray[left];
+            strArray[left] = strArray[right];
+            strArray[right] = temp;
+            left++;
+            right--;
+        }
+        return new String(strArray);
+    }

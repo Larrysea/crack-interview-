@@ -1,0 +1,15 @@
+crack interview 第一题：
+
+//检查该字符中是否存在重复的字符。
+
+
+public static boolean checkDifferent(String iniString) {
+        boolean[] charExist = new boolean[128];
+        for (int i = 0; i < iniString.length(); i++) {
+            if (charExist[iniString.charAt(i)]) {
+                return false;
+            }
+            charExist[iniString.charAt(i)] = true;
+        }
+        return true;
+    }

@@ -1,0 +1,30 @@
+    //crack interview 第三题，检查字符串经过排序是否相同
+    public static boolean checkSam(String stringA, String stringB) {
+        if (stringA.length() != stringB.length()) {
+            return false;
+        }
+        // write code here
+        //思路将两个字符串分别转成
+        HashMap<Character, Integer> aMap = new HashMap();
+        HashMap<Character, Integer> bMap = new HashMap();
+
+        countCharInString(aMap, stringA);
+        countCharInString(bMap, stringB);
+        char[] array = stringA.toCharArray();
+        for (int i = 0; i < array.length; i++) {
+            if (!aMap.get(array[i]).equals(bMap.get(array[i]))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    private static void countCharInString(HashMap<Character, Integer> hashmap, String str) {
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            hashmap.put(charArray[i], hashmap.get(charArray[i]) != null ? hashmap.get(charArray[i]) + 1 : 1);
+        }
+
+    }
